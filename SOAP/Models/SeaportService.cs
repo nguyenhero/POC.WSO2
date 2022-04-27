@@ -6,7 +6,7 @@ namespace SOAP.Models
     public class SeaportService : ISeaportService
     {
 
-        private List<SeaportModel> _data = new List<SeaportModel>()
+        private readonly List<SeaportModel> _data = new()
             {
                 new SeaportModel() { GlobalName = "Seaport I",Name = "Seaport I", Id = 1 },
                 new SeaportModel() { GlobalName = "Seaport II",Name = "Seaport II", Id = 2 },
@@ -26,12 +26,8 @@ namespace SOAP.Models
         }
         public SeaportModel GetById(int id)
         {
-            var current = _data.FirstOrDefault(x => x.Id == id);
-            if (current == null)
-            {
-                throw new Exception("Not Found");
-            }
-            return current;
+            SeaportModel? current = _data.FirstOrDefault(x => x.Id == id);
+            return current ?? throw new Exception("Not Found");
         }
         /// <summary>
         /// Cập nhật
@@ -41,7 +37,7 @@ namespace SOAP.Models
         /// <returns></returns>
         public bool Update(int id, SeaportModel data)
         {
-            var current = _data.FirstOrDefault(x => x.Id == id);
+            SeaportModel? current = _data.FirstOrDefault(x => x.Id == id);
             if (current != null)
             {
                 current.Name = data.Name;
@@ -61,12 +57,19 @@ namespace SOAP.Models
         /// <returns></returns>
         public bool Patch(int id, SeaportModel data)
         {
-            var current = _data.FirstOrDefault(x => x.Id == id);
+            SeaportModel? current = _data.FirstOrDefault(x => x.Id == id);
             if (current != null)
             {
 
-                if (!string.IsNullOrEmpty(data.Name)) current.Name = data.Name;
-                if (!string.IsNullOrEmpty(data.GlobalName)) current.GlobalName = data.GlobalName;
+                if (!string.IsNullOrEmpty(data.Name))
+                {
+                    current.Name = data.Name;
+                }
+
+                if (!string.IsNullOrEmpty(data.GlobalName))
+                {
+                    current.GlobalName = data.GlobalName;
+                }
             }
             else
             {
@@ -81,16 +84,8 @@ namespace SOAP.Models
         /// <returns></returns>
         public bool Delete(int id)
         {
-            var current = _data.FirstOrDefault(x => x.Id == id);
-            if (current != null)
-            {
-
-                _data.Remove(current);
-            }
-            else
-            {
-                throw new Exception("Not Found");
-            }
+            SeaportModel? current = _data.FirstOrDefault(x => x.Id == id);
+            _ = current != null ? _data.Remove(current) : throw new Exception("Not Found");
             return true;
         }
 

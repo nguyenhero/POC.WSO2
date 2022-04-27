@@ -3,7 +3,7 @@ using SOAP.Models;
 using SoapCore;
 using System.ServiceModel.Channels;
 
-var builder = WebApplication.CreateBuilder(args);
+WebApplicationBuilder? builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
@@ -12,7 +12,7 @@ builder.Services.AddSoapCore();
 builder.Services.TryAddSingleton<ISeaportService, SeaportService>();
 
 
-var app = builder.Build();
+WebApplication? app = builder.Build();
 
 // Configure the HTTP request pipeline.
 

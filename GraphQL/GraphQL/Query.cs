@@ -4,10 +4,10 @@
     {
         private List<ContainerModel> _data = new List<ContainerModel>()
             {
-                new ContainerModel() { GlobalName = "Reefer ship",Name = "Tàu chở hàng đông lạnh", Id = 1 },
-                new ContainerModel() { GlobalName = "Container ship",Name = "Tàu Container", Id = 2 },
-                new ContainerModel() { GlobalName = "Bulk carrier",Name = "Tàu chở hàng rời", Id = 3 },
-                new ContainerModel() { GlobalName = "Ro-Ro ship",Name = "Tàu Roro", Id = 4 },
+                new ContainerModel() { GlobalName = "Container 1",Name = "Container 1", Id = 1 },
+                new ContainerModel() { GlobalName = "Container 2",Name = "Container 2", Id = 2 },
+                new ContainerModel() { GlobalName = "Container 3",Name = "Container 3", Id = 3 },
+                new ContainerModel() { GlobalName = "Container 4",Name = "Container 4", Id = 4 },
             };
         // Will return all of our todo list items
         // We are injecting the context of our dbConext to access the db
