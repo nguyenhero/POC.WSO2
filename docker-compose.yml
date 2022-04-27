@@ -1,0 +1,25 @@
+version: '3.4'
+
+services:
+  restapi:
+    image: nguyenhero/restapi
+    ports: 
+     - 11001:80
+    build:
+      context: .
+      dockerfile: RESTAPI/Dockerfile
+  graphql:
+    image: nguyenhero/graphql
+    ports: 
+     - 11002:80
+    build:
+      context: .
+      dockerfile: GraphQL/Dockerfile
+  soap:
+    image: nguyenhero/soap
+    ports: 
+     - 11003:80
+    build:
+      context: .
+      dockerfile: SOAP/Dockerfile
+
