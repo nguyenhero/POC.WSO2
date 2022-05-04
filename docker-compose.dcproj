@@ -9,6 +9,8 @@
     <DockerServiceName>restapi</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="docker-compose-v3.yml" />
+    <None Include="docker-compose-v4.yml" />
     <None Include="docker-compose.override.yml">
       <DependentUpon>docker-compose.yml</DependentUpon>
     </None>
